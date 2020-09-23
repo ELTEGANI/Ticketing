@@ -28,10 +28,13 @@ async(req:Request,res:Response) => {
    await user.save();
 
    //Generate JWT
-   const userJwt = jwt.sign({
+   const userJwt = jwt.sign(
+      {
       id:user.id,
       email:user.email
-   },process.env.JWT_KEY!);
+      },
+     process.env.JWT_KEY!
+     );
 
    //Store it on session object
     req.session = {
