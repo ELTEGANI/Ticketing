@@ -1,7 +1,7 @@
 import express from 'express';
 import 'express-async-errors';
 import {json} from 'body-parser';
-import cookieSeaaion from 'cookie-session';
+import cookieSession from 'cookie-session';
 import { currenUserRouter } from './routes/current-user';
 import { signInRouter } from './routes/siginin';
 import { signoutRouter } from './routes/siginout';
@@ -13,9 +13,9 @@ const app = express();
 app.set('trust proxy',true);
 app.use(json());
 app.use(
-  cookieSeaaion({
+  cookieSession({
     signed:false,
-    secure:process.env.NODE_ENV !=='test'
+    secure:process.env.NODE_ENV !== 'test'
   })
 )
 
