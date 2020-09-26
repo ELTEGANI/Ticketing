@@ -1,8 +1,7 @@
 import express ,{Request,Response} from 'express';
 import {body} from 'express-validator';
-import {validationRequest} from '../middlewares/validate-request';
+import {validationRequest,BadRequestError} from '@tjtickets/common';
 import {User} from '../models/user';
-import {BadRequestError} from '../errors/bad-request-error';
 import {Password} from '../utils/password';
 import jwt from 'jsonwebtoken';
 
