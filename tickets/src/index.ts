@@ -6,9 +6,8 @@ const start = async()=>{
     throw new Error('JWT KEY must be Configured');
   }
   if(!process.env.MONOG_URI){
-    throw new Error('MONOG_URI must be Configured');
+    throw new Error('Mongo Uri must be Configured');
   }
-
   try{
   await mongoose.connect(process.env.MONOG_URI,{
     useNewUrlParser:true,
