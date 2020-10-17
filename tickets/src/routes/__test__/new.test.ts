@@ -1,6 +1,7 @@
 import request from 'supertest';
 import {app} from '../../app';
 import { Ticket } from '../../models/ticket';
+import {natsWrapper} from '../../nats-wrapper';
 
 
 it('has route handler listening to /api/tickest for posts request',async() => {
@@ -80,5 +81,21 @@ it('returns an error if an invalid price is provided',async() => {
   expect(tickets[0].price).toEqual(70)
   expect(tickets[0].title).toEqual(title)
   })
+
+
+  it('publishe an event',async()=>{
+      const title = 'lkjkl';
+
+      await request(app)
+      .post('/api/tickets')
+      .set('Cookie',global.signin())
+      .send({
+        title:title,
+        price:30
+      });
+    expect(201);  
+    expect(natsWrapper.client.publish).toHaveBeenCalled();
+  })
+
 
 
