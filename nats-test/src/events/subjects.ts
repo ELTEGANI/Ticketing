@@ -1,5 +1,5 @@
-export enum Subjects{
+export enum Subjects {
     TicketCreated = 'ticket:created',
-    OrderUpdated  = 'order:updated'
-}
-
+    OrderUpdated = 'order:updated',
+  }
+  
