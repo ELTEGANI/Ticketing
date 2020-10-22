@@ -3,7 +3,6 @@ import {Order,OrderStatus} from '../models/order';
 import {requireAuth, NotFoundError, NotAuthorizedError} from '@tjtickets/common';
 import {OrderCancelledPublisher} from '../events/publishers/order-cancelled-publisher';
 import {natsWrapper} from '../nats-wrapper';
-import { version } from 'mongoose';
 
 
 const router = express.Router();
