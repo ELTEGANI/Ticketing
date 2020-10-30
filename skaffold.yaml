@@ -39,4 +39,12 @@ build:
       sync:
         manual:
           - src: '**/*.js'
-            dest: .      
+            dest: .  
+    - image: tigani/expiration
+      context: expiration
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: '**/*.js'
+            dest: .            
